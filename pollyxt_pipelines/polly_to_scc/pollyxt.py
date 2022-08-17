@@ -164,7 +164,7 @@ class PollyXTRepository:
 
         self.index = pd.DataFrame(rows)
         self.index = self.index.sort_values("timestamp", ascending=True)
-        self.index["calibration"] = self.index["depol_cal_angle"] != 0
+        self.index["calibration"] = self.index["depol_cal_angle"] != 0  # make this dependent from system, and skip firt and last index of the +45 and -45 period.
 
     def get_time_period(self) -> Tuple[datetime, datetime]:
         """
